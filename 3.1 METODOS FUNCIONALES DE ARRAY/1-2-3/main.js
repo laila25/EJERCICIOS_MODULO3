@@ -24,11 +24,11 @@ const users = [
 ];
 
 const getgreetUsers = user => {
-  debugger;
+  //debugger;
   if (user.isPremium === true) {
-    `Bienvenida ${user.name}. Gracias por confiar en nosotros.'`;
+    return `Bienvenida ${user.name}. Gracias por confiar en nosotros.'`;
   } else {
-    `Bienvenida ${user.name}`;
+    return `Bienvenida ${user.name}`;
   }
 };
 

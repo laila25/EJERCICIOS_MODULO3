@@ -26,7 +26,8 @@ const users = [
 users.sort((a, b) => a.pin - b.pin);
 console.log(users);
 
-// EJERCICIO igual pero ordenando alfabeticamente por los nombres
+// EJERCICIO igual pero ordenando alfabeticamente ascendente por los nombres
+// para ordenar descendente, primero ponemos -1 y luego 1
 
 const users2 = [
   { name: "María", isPremium: false, pin: 2389 },

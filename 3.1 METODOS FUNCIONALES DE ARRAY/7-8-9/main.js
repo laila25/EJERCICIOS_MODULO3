@@ -6,7 +6,7 @@ const times = [56, 9, 45, 28, 35];
 
 const average = times.reduce((acc, number) => acc + number) / times.length;
 
-console.log(average);
+//console.log(average);
 
 // EJERCICIO 8
 
@@ -20,6 +20,7 @@ const runners = [
 
 let number = 100;
 const functionPrueba = (acc, runner) => {
+  debugger;
   if (runner.time < number) {
     number = runner.time;
     return (acc = runner);
@@ -56,3 +57,28 @@ const functionPrueba2 = (acc, runner) => {
 const runnerStudentWinner = runnerStudent.reduce(functionPrueba2, {});
 
 console.log(runnerStudentWinner);
+
+// EJERCICIO 9 BIS
+
+const runners3 = [
+  { name: "Gregory Goyle", time: 56, student: true },
+  { name: "Nymphadora Tonks", time: 9, student: false },
+  { name: "Luna Lovegood", time: 45, student: true },
+  { name: "Cedric Diggory", time: 28, student: true },
+  { name: "Cho Chang", time: 35, student: true }
+];
+
+let number3 = 100;
+const functionPrueba3 = (acc, runner) => {
+  if (runner.time < number3) {
+    number3 = runner.time;
+    return (acc = runner);
+  }
+  return acc;
+};
+
+const runnerStudent2 = runners3
+  .filter(runner => runner.student === true)
+  .reduce(functionPrueba3, {});
+
+console.log(runnerStudent2);
