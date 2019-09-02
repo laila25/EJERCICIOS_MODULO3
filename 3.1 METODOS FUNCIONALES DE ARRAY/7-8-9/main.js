@@ -18,9 +18,18 @@ const runners = [
   { name: "Cho Chang", time: 35 }
 ];
 
-//const winner = runners.reduce((acc, number) => (acc = Math.min(...runners.time)));
+let number = 100;
+const functionPrueba = (acc, runner) => {
+  if (runner.time < number) {
+    number = runner.time;
+    return (acc = runner);
+  }
+  return acc;
+};
 
-console.log(Math.min(...times));
+const winner = runners.reduce(functionPrueba, {});
+
+console.log(winner);
 
 // EJERCICIO 9
 
@@ -31,3 +40,19 @@ const runners2 = [
   { name: "Cedric Diggory", time: 28, student: true },
   { name: "Cho Chang", time: 35, student: true }
 ];
+
+const runnerStudent = runners2.filter(runner => runner.student === true);
+console.log(runnerStudent);
+
+let number2 = 100;
+const functionPrueba2 = (acc, runner) => {
+  if (runner.time < number2) {
+    number2 = runner.time;
+    return (acc = runner);
+  }
+  return acc;
+};
+
+const runnerStudentWinner = runnerStudent.reduce(functionPrueba2, {});
+
+console.log(runnerStudentWinner);
