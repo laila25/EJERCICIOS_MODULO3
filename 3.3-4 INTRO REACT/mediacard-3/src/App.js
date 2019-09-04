@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "./IMG_20190903_090249.jpg";
-import "./App.css";
+import "./App.scss";
 
 const headerTitle = <h1 className="App-header-name-title">Kira</h1>;
 const headerText = (
