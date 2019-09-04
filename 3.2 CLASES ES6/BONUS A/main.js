@@ -13,24 +13,27 @@ class Polygon {
 
   area() {
     console.log(this.base * this.height);
+    return this.base * this.height;
   }
 }
 
 class Square extends Polygon {
-  constructor(base) {
-    super(4, base, height);
+  constructor(side) {
+    super(4, side, side);
     this.side = this.base;
   }
 }
 
 class Triangle extends Polygon {
-  constructor(base, height) {}
+  constructor(base, height) {
+    super(3, base, height);
+  }
   area() {
     console.log(super.area() / 2);
   }
 }
 
-const cuadrado = new Square(4);
+const cuadrado = new Square(5);
 const triangulo = new Triangle(4, 3);
 
 cuadrado.perimeter();
