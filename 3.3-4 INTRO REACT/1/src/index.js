@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import RandomCats from "./components/RandomCats";
+import CatList from "./components/CatList";
 import * as serviceWorker from "./serviceWorker";
 
-ReactDOM.render(<RandomCats />, document.getElementById("root"));
+ReactDOM.render(<CatList />, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
