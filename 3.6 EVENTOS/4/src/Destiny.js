@@ -1,16 +1,23 @@
 import React from "react";
 import CityImage from "./CityImage";
 
-const onChangeListener = ev => {
-  const citySelected = ev.currentTarget.value;
-  alert(`Tu destino es viajar a ${citySelected}`);
-};
+let citySelected;
 
 class Destiny extends React.Component {
+  constructor() {
+    super();
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(ev) {
+    citySelected = ev.target.value;
+    this.forceUpdate();
+  }
+
   render() {
     return (
       <div>
-        <select onChange={onChangeListener}>
+        <select onChange={this.handleClick}>
           <option value="">Elige una ciudad</option>
           <option value="Buenos Aires">Buenos Aires</option>
           <option value="Sydney">Sydney</option>
@@ -19,7 +26,7 @@ class Destiny extends React.Component {
           <option value="Tokio">Tokio</option>
         </select>
         <br />
-        <CityImage city="Boston" />
+        <CityImage city={citySelected === undefined ? "" : citySelected} />
       </div>
     );
   }

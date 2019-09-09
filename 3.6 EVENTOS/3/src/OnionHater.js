@@ -2,8 +2,8 @@ import React from "react";
 import "./App.css";
 
 class OnionHater extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.handleClick = this.handleClick.bind(this);
     this.isHating = false;
   }
@@ -22,7 +22,6 @@ class OnionHater extends React.Component {
   }
 
   render() {
-    //debugger;
     return (
       <div className={`OnionHater ${this.isHating === true ? "red" : ""}`}>
         <label>¿Qué te parece la cebolla?</label>
@@ -34,3 +33,5 @@ class OnionHater extends React.Component {
 }
 
 export default OnionHater;
+
+//<div className={`OnionHater ${this.isHating === true ? "red" : ""}`}>
