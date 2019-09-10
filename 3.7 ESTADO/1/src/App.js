@@ -13,6 +13,7 @@ class App extends React.Component {
 
   handleChange(ev) {
     const text = ev.target.value;
+    console.log(text);
     this.setState({
       content: `${text}`
     });
