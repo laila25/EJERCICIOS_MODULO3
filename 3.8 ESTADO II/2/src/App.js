@@ -15,6 +15,7 @@ class App extends React.Component {
     };
     this.updateForm = this.updateForm.bind(this);
     this.updateCheckbox = this.updateCheckbox.bind(this);
+    this.fileInput = React.createRef();
   }
 
   updateForm(ev) {
@@ -24,7 +25,9 @@ class App extends React.Component {
   }
 
   updateCheckbox(ev) {
-    genreItems[genreItems.length] = ev.target.value;
+    if (!genreItems.includes(ev.target.value)) {
+      genreItems[genreItems.length] = ev.target.value;
+    }
     this.setState({
       [ev.target.name]: genreItems
     });
@@ -112,6 +115,15 @@ class App extends React.Component {
             id="genre2"
             value="drama"
             checked={this.state.genre.includes("drama") ? true : false}
+            onChange={this.updateCheckbox}
+          ></input>
+          <label htmlFor="genre3">Fantasía</label>
+          <input
+            type="checkbox"
+            name="genre"
+            id="genre3"
+            value="fantasia"
+            checked={this.state.genre.includes("fantasia") ? true : false}
             onChange={this.updateCheckbox}
           ></input>
         </form>
