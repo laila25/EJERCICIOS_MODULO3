@@ -1,6 +1,7 @@
 import React from "react";
 import "../stylesheets/App.css";
-import Item from "./item";
+import ItemList from "./ItemList";
+import ItemDetails from "./ItemDetail";
 import SearchByCity from "./SearchByCity";
 import SearchByGenre from "./SearchByGenre";
 
@@ -15,7 +16,7 @@ class App extends React.Component {
     this.getDataFromServer = this.getDataFromServer.bind(this);
     this.filterByCity = this.filterByCity.bind(this);
     this.filterByGenre = this.filterByGenre.bind(this);
-    this.desFilterByGenre = this.desFilterByGenre.bind(this);
+    this.filterByUser = this.filterByUser.bind(this);
     this.getDataFromServer();
   }
 
@@ -24,6 +25,7 @@ class App extends React.Component {
       .then(Response => Response.json())
       .then(data => {
         usersData = data.results;
+        console.log(usersData);
         this.setState({
           users: usersData
         });
@@ -62,10 +64,21 @@ class App extends React.Component {
     }
   }
 
-  desFilterByGenre() {
-    this.setState({
-      users: usersData
-    });
+  filterByUser(ev) {
+    const userSelected = ev.currentTarget;
+    console.log(userSelected);
+    if (ev.target.checked === true) {
+      const usersFilterByUser = this.state.users.filter(
+        user => user.gender === userSelected
+      );
+      this.setState({
+        users: usersFilterByUser
+      });
+    } else {
+      this.setState({
+        users: usersData
+      });
+    }
   }
 
   render() {
@@ -86,15 +99,12 @@ class App extends React.Component {
             <SearchByGenre
               users={this.state.users}
               filterByGenre={this.filterByGenre}
-              desFilterByGenre={this.desFilterByGenre}
             />
           </form>
         </div>
         <div className="users">
-          <p>USERS</p>
-          <ul>
-            <Item users={this.state.users} />
-          </ul>
+          <ItemList users={this.state.users} filterByUser={this.filterByUser} />
+          <ItemDetails users={this.state.users} />
         </div>
       </div>
     );

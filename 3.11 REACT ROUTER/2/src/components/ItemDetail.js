@@ -2,15 +2,10 @@ import React from "react";
 
 let usersList;
 
-const Item = props => {
+const ItemDetails = props => {
   let users = props.users;
   usersList = users.map((user, index) => (
-    <li
-      className="item"
-      key={index}
-      onClick={props.filterByUser}
-      data-id={user.id.name}
-    >
+    <li className="item" key={index}>
       <div className="itemContent">
         <img src={user.picture.medium} alt={user.name.first}></img>
         <div className="content">
@@ -26,4 +21,4 @@ const Item = props => {
   return usersList;
 };
 
-export default Item;
+export default ItemDetails;
