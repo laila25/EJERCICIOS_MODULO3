@@ -27,7 +27,6 @@ class App extends React.Component {
         this.setState({
           users: usersData
         });
-        console.log(usersData);
       });
   }
 
