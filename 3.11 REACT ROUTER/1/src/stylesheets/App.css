@@ -1,0 +1,23 @@
+.app {
+  text-align: center;
+  margin-top: 0;
+}
+
+.app-menu {
+  display: flex;
+  justify-content: space-around;
+  width: 100vw;
+  background-color: lightgrey;
+  margin: 0;
+}
+
+.app-menu-item {
+  display: inline-block;
+  line-height: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.app-menu-item:hover {
+  background-color: grey;
+}

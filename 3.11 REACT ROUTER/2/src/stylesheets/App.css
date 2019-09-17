@@ -1,0 +1,47 @@
+.app {
+  display: flex;
+  margin: 0;
+  padding: 10px;
+}
+
+.filters {
+  width: 500px;
+  height: 90vh;
+  border: 1px solid grey;
+  padding: 10px;
+}
+
+.users {
+  width: 800px;
+  height: 90vh;
+  border: 1px solid grey;
+  padding: 10px;
+}
+
+.item {
+  list-style: none;
+  display: inline-block;
+  border: solid 1px grey;
+  border-radius: 10px;
+  width: 40%;
+  padding: 5px;
+  margin: 2px;
+}
+
+.itemContent {
+  display: flex;
+}
+
+.item img {
+  border-radius: 10px;
+  width: 100px;
+  height: 100px;
+}
+
+.content {
+  margin-left: 10px;
+}
+
+.content p {
+  margin: 0;
+}
