@@ -1,24 +1,19 @@
 import React from "react";
 
-let usersList;
-
 const ItemDetails = props => {
-  let users = props.users;
-  usersList = users.map((user, index) => (
-    <li className="item" key={index}>
-      <div className="itemContent">
-        <img src={user.picture.medium} alt={user.name.first}></img>
-        <div className="content">
-          <p>
-            <b>{user.name.first}</b> {user.name.last}
-          </p>
-          <p>Ciudad: {user.location.city} </p>
-          <p>Edad: {user.dob.age} años </p>
-        </div>
+  console.log(props);
+  return (
+    <div className="itemContent">
+      <img src={props.user.picture.medium} alt=""></img>
+      <div className="content">
+        <p>
+          <b>{props.user.name.first}</b>
+        </p>
+        <p>Ciudad: {props.user.location.city} </p>
+        <p>Edad: {props.user.dob.age} años </p>
       </div>
-    </li>
-  ));
-  return usersList;
+    </div>
+  );
 };
 
 export default ItemDetails;

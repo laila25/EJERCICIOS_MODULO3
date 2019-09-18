@@ -1,16 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 let usersList;
 
 const Item = props => {
   let users = props.users;
   usersList = users.map((user, index) => (
-    <li
-      className="item"
-      key={index}
-      onClick={props.filterByUser}
-      data-id={user.id.name}
-    >
+    <li className="item" key={index}>
       <div className="itemContent">
         <img src={user.picture.medium} alt={user.name.first}></img>
         <div className="content">
@@ -19,6 +15,7 @@ const Item = props => {
           </p>
           <p>Ciudad: {user.location.city} </p>
           <p>Edad: {user.dob.age} años </p>
+          <Link to={`/user/${user.id.name}`}>Ver Detalles</Link>
         </div>
       </div>
     </li>

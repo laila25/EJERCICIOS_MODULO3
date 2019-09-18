@@ -1,9 +1,11 @@
 import React from "react";
 import "../stylesheets/App.css";
+import Home from "./Home";
 import ItemList from "./ItemList";
 import ItemDetails from "./ItemDetail";
 import SearchByCity from "./SearchByCity";
 import SearchByGenre from "./SearchByGenre";
+import { Link, Route, Switch } from "react-router-dom";
 
 let usersData = [];
 
@@ -17,6 +19,8 @@ class App extends React.Component {
     this.filterByCity = this.filterByCity.bind(this);
     this.filterByGenre = this.filterByGenre.bind(this);
     this.filterByUser = this.filterByUser.bind(this);
+    this.renderList = this.renderList.bind(this);
+    this.renderUser = this.renderUser.bind(this);
     this.getDataFromServer();
   }
 
@@ -81,10 +85,34 @@ class App extends React.Component {
     }
   }
 
+  renderList() {
+    return (
+      <ItemList users={this.state.users} filterByUser={this.filterByUser} />
+    );
+  }
+
+  renderUser(props) {
+    let userSelected;
+    console.log(props.match.params.id);
+
+    for (const user of this.state.users) {
+      if (user.id.name === props.match.params.id) {
+        userSelected = user;
+      }
+    }
+    console.log(userSelected);
+    return <ItemDetails user={userSelected} />;
+  }
+
   render() {
     return (
       <div className="app">
         <div className="filters">
+          <p>
+            <Link to="/">INICIO</Link>
+            <br />
+            <Link to="/itemlist">VER USUARIOS</Link>
+          </p>
           <p>
             <b>FILTERS</b>
           </p>
@@ -103,8 +131,11 @@ class App extends React.Component {
           </form>
         </div>
         <div className="users">
-          <ItemList users={this.state.users} filterByUser={this.filterByUser} />
-          <ItemDetails users={this.state.users} />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/itemlist" render={this.renderList} />
+            <Route path="/user/:id" render={this.renderUser} />
+          </Switch>
         </div>
       </div>
     );
