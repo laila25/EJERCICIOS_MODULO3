@@ -12,6 +12,7 @@ class Clock extends React.Component {
       time: `${date}`
     };
     this.updateClock = this.updateClock.bind(this);
+    setInterval(this.updateClock, 1000);
   }
 
   updateClock() {
@@ -30,7 +31,6 @@ class Clock extends React.Component {
   }
 
   render() {
-    setInterval(this.updateClock, 1000);
     return <div>{this.state.time}</div>;
   }
 }
